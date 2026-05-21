@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Japan Market — Menú</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@300;400;600&family=Noto+Sans+JP:wght@300;400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <!-- ══════════════ HEADER ══════════════ -->
+  <header class="site-header">
+    <div class="header-inner">
+      <div class="logo">
+        <span class="logo-kanji">市場</span>
+        <div class="logo-text">
+          <span class="logo-title">Motto hoshī!</span>
+          <span class="logo-sub">inventario</span>
+        </div>
+      </div>
+      <nav class="nav-top">
+        <a href="index.html" class="nav-link nav-link--active">Inicio</a>
+        <a href="login.html" class="nav-link">Cerrar sesión</a>
+      </nav>
+      <!-- Hamburguesa solo en móvil -->
+      <button class="hamburger" aria-label="Abrir menú">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </header>
+
+  <!-- ══════════════ MAIN ══════════════ -->
+  <main class="main-content">
+
+    <!-- Bienvenida -->
+    <section class="hero-section">
+      <div class="hero-line"></div>
+      <div class="hero-text">
+        <p class="hero-greeting">Bienvenido</p>
+        <h1 class="hero-title">Panel de control</h1>
+        <p class="hero-desc">Gestiona tu inventario de cómics, manga y figuras desde aquí.</p>
+      </div>
+    </section>
+
+    <!-- Tarjetas de acceso rápido -->
+    <section class="cards-section">
+      <h2 class="section-label">Acciones</h2>
+      <div class="cards-grid">
+
+        <a href="new-product.html">
+          <article class="card">
+            <div class="card-icon">＋</div>
+            <div class="card-body">
+              <h3 class="card-title">Añadir producto</h3>
+              <p class="card-desc">Registra un nuevo artículo en el inventario.</p>
+            </div>
+            <div class="card-arrow">→</div>
+          </article>
+        </a>
+
+        <article class="card">
+          <div class="card-icon">≡</div>
+          <div class="card-body">
+            <h3 class="card-title">Ver inventario</h3>
+            <p class="card-desc">Consulta y filtra todos tus productos.</p>
+          </div>
+          <div class="card-arrow">→</div>
+        </article>
+
+        <article class="card card--alert">
+          <div class="card-icon">⚠</div>
+          <div class="card-body">
+            <h3 class="card-title">Stock bajo</h3>
+            <p class="card-desc">Productos con menos de 5 unidades disponibles.</p>
+          </div>
+          <div class="card-arrow">→</div>
+        </article>
+
+      </div>
+    </section>
+
+    <!-- Estadísticas rápidas -->
+    <section class="stats-section">
+      <h2 class="section-label">Resumen</h2>
+      <div class="stats-grid">
+        <div class="stat-item">
+          <span class="stat-number">—</span>
+          <span class="stat-label">Productos</span>
+        </div>
+        <div class="stat-item">
+          <span class="stat-number">—</span>
+          <span class="stat-label">Categorías</span>
+        </div>
+        <div class="stat-item stat-item--alert">
+          <span class="stat-number">—</span>
+          <span class="stat-label">Stock bajo</span>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ══════════════ FOOTER ══════════════ -->
+  <footer class="site-footer">
+    <p>Desarrollado por <strong>Carlos Colorado Anselmo</strong></p>
+    <p class="footer-kanji">Motto hoshī!</p>
+  </footer>
+  <script src="app.js"></script>
+</body>
+</html>

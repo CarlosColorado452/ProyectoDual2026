@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Japan Market — Menú</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@300;400;600&family=Noto+Sans+JP:wght@300;400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header class="site-header">
+    <div class="header-inner">
+      <div class="logo">
+        <span class="logo-kanji">市場</span>
+        <div class="logo-text">
+          <span class="logo-title">Motto hoshī!</span>
+          <span class="logo-sub">inventario</span>
+        </div>
+      </div>
+      <nav class="nav-top">
+        <a href="index.html" class="nav-link nav-link--active">Inicio</a>
+        <a href="login.html" class="nav-link">Cerrar sesión</a>
+      </nav>
+      <!-- Hamburguesa solo en móvil -->
+      <button class="hamburger" aria-label="Abrir menú">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </header>
+      <main class="auth-main">
+        <div class="auth-box">
+  
+          <header class="auth-header">
+            <a href="menu.html" class="auth-back">← Volver</a>
+            <h1 class="auth-title">Añadir producto</h1>
+            <p class="auth-subtitle">Renueva tu almacén</p>
+          </header>    
+          <form class="auth-form" novalidate id="nuevoProducto">
+
+            <div class="field">
+              <label class="field__label" for="nombre">Nombre</label>
+              <input
+                class="field__input"
+                type="text"
+                id="nombre"
+                name="nombre"
+                placeholder="Arroz Teriyaki"
+                required
+              >
+            </div>
+  
+            <div class="field">
+              <label class="field__label" for="categoria">Categoría</label>
+              <input
+                class="field__input"
+                type="text"
+                id="categoria"
+                name="categoria"
+                placeholder="Arroz"
+                required
+              >
+            </div>
+          
+
+            <div class="field">
+                <label class="field__label" for="precio">Precio (por unidad)</label>
+                <input
+                  class="field__input"
+                  type="text"
+                  id="precio"
+                  name="precio"
+                  placeholder="20"
+                  required
+                >
+              </div>
+
+              <div class="field">
+                <label class="field__label" for="stock">Stock</label>
+                <input
+                  class="field__input"
+                  type="text"
+                  id="stock"
+                  name="stock"
+                  placeholder="10"
+                  required
+                >
+              </div>
+
+              <div class="field">
+                <label class="field__label" for="descripcion">descripcion</label>
+                <textarea
+                  class="field__input scaled_up"
+                  type="text"
+                  id="descripcion"
+                  name="descripcion"
+                  placeholder="El mejor plato que vas a probar en tu vida"
+                  required
+                ></textarea>
+              </div>
+
+            <button class="auth-submit" type="submit">Añadir</button>
+  
+          </form>
+
+
+<script src="app.js"></script>
+</body>
