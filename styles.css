@@ -1,7 +1,3 @@
-/* ═══════════════════════════════════════════
-   JAPAN MARKET — styles.css (único archivo)
-   Portada (index.html) + Aplicación (menu.html)
-═══════════════════════════════════════════ */
 
 /* ── Variables ── */
 :root {
@@ -21,7 +17,7 @@
   /* ── Reset ── */
   *, *::before, *::after {
     margin: 0;
-    padding: 0;
+    padding:  0;
     box-sizing: border-box;
   }
   
@@ -36,6 +32,14 @@
   a { text-decoration: none; color: inherit; }
   
   
+
+  /* --- Ocultar elemento --- */
+
+  .oculto{
+    display: none;
+  }
+
+
   /* ════════════════════════════════════════════
      PORTADA (index.html)
   ════════════════════════════════════════════ */
@@ -648,9 +652,105 @@
   }
   
   .scaled_up{
-    min-height: 15vh;
+    min-height: 10vh;
     resize: none;
   }
+
+  .box-message{
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 90%;
+      max-width: 400px;
+      padding: 4rem;
+
+      background-color: white;
+      border: 1px solid var(--borde);
+      border-radius: var(--radio);
+      z-index: 10;
+      transition: all 0.2s ease-in-out;
+      font-family: var(--font-sans);
+      font-weight: bold;
+      transition: all 0.2s ease-in-out;
+     
+  }
+
+  .box-message .title-add{
+    
+    font-size: 1.25em;
+    position: absolute;
+    top: 25%;
+    left: 23%;
+    transform: translate(-50%, -50%);
+
+    
+  }
+
+  .error-style{
+    color: var(--carmesi);
+    border-color: var(--carmesi);
+    background-color: #ff9286;
+  }
+
+  .error-style:hover{
+    box-shadow: 0 0 0 3px rgba(192, 57, 43, 0.15);
+  }
+
+
+  .correct-style{
+    color: #31c367;
+    border-color: #31c367;
+    background-color: #cafedd;
+  }
+  
+  .correct-style:hover{
+    box-shadow: 0 0 0 3px rgba(27, 127, 34, 0.15);
+  }
+   
+  
+
+
+  .box-message .message-add{
+    font-size: 0.9em;
+    position: absolute;
+    top: 50%;
+  left: 7%;
+    width: 40%;
+
+
+
+
+
+  }
+  .box-message img{
+    position: absolute;
+    top: 26%;
+    left: 9%;
+    transform: translate(-50%, -50%);
+    width: 2rem;
+   
+  }
+
+.box-message .btn-cerrar{
+  position: absolute;
+  top: 12%;
+  left: 95%;
+  transform: translate(-50%, -50%);
+  width: 25px;
+  height: 18px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.overlay-opaco {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 9;
+  transition: all 0.2s ease-in-out;
+}
+
 
   /* Botón submit */
   .auth-submit {

@@ -1,14 +1,22 @@
+// ---- CARGA DE USUARIOS POR DEFECTO ----
+// Usuarios: admin, empleado
+// Posibilidad de clientes: Cliente1, Cliente2
+
+
+
+
+
 
 // ---- METODOS PRODUCTOS ----
 function obtenerProductos(){
 
-    return JSON.parse(localStorage.getItem('productos')) || [];
+    return JSON.parse(localStorage.getItem('productos')) || []
 
 }
 
 function guardarProductos(productos) {
 
-    localStorage.setItem('productos', JSON.stringify(productos));
+    localStorage.setItem('productos', JSON.stringify(productos))
 
   }
 
@@ -52,10 +60,43 @@ function normalizar(texto) {
 
   }
 
+// --- VENTANA DE ERROR ---
+
+function mostrarMensaje(titulo, mensaje, tipo){
+    document.getElementById('overlay-message').classList.remove('oculto')
+    document.getElementById('box-message').classList.remove('oculto')
+    document.getElementById('box-message').classList.remove('correct-style','error-style')
+    document.getElementById('message-text').textContent = mensaje;
+    if(tipo == 'ok'){
+        document.getElementById('icon-message').src ='img/bien.png'
+        document.getElementById('box-message').classList.add('correct-style')
+    }else{
+        document.getElementById('icon-message').src ='img/error.png'
+        document.getElementById('box-message').classList.add('error-style') 
+    }
+    document.getElementById('title-message').textContent = titulo;
+
+}
+
+
+
+
+
 
 // ---- EVENTOS ----
 
 document.getElementById('nuevoProducto').addEventListener('submit', (evento) => {
+    //No se reinicia la página
     evento.preventDefault()
-    anadirProducto();
+    if(!productoYaExiste(obtenerProductoFormulario())){
+        anadirProducto()
+        mostrarMensaje('Correcto', 'Aadido correctamente', 'ok')
+    }else
+        mostrarMensaje('Error', 'Ese producto ya existe', 'error')
 })
+
+document.getElementById('btn-cerrar').addEventListener('click', (evento) => {
+    evento.preventDefault()
+    document.getElementById('overlay-message').classList.add('oculto')
+    document.getElementById('box-message').classList.add('oculto')
+});

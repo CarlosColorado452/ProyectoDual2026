@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Japan Market — Menú</title>
+  <title>Motto hoshī! - Añadir</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@300;400;600&family=Noto+Sans+JP:wght@300;400&display=swap" rel="stylesheet">
@@ -36,7 +36,18 @@
             <a href="menu.html" class="auth-back">← Volver</a>
             <h1 class="auth-title">Añadir producto</h1>
             <p class="auth-subtitle">Renueva tu almacén</p>
-          </header>    
+          </header>
+          <div id ="overlay-message" class="overlay-opaco oculto"></div>
+          <div id ="box-message" class="box-message error-style oculto">
+            <img  id="icon-message" src="./img/error.png" alt="Icono Error">
+            <p id ="title-message" class="title-add">
+              Error
+            </p>
+            <p id ="message-text"class="message-add">
+              El producto ya existe.
+            </p>
+            <button id ='btn-cerrar' class="btn-cerrar">X</button>
+          </div>
           <form class="auth-form" novalidate id="nuevoProducto">
 
             <div class="field">
@@ -68,7 +79,7 @@
                 <label class="field__label" for="precio">Precio (por unidad)</label>
                 <input
                   class="field__input"
-                  type="text"
+                  type="number"
                   id="precio"
                   name="precio"
                   placeholder="20"
@@ -80,7 +91,7 @@
                 <label class="field__label" for="stock">Stock</label>
                 <input
                   class="field__input"
-                  type="text"
+                  type="number"
                   id="stock"
                   name="stock"
                   placeholder="10"
