@@ -1,120 +1,130 @@
-<!DOCTYPE html>
-<html lang="es">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Motto hoshī! - Añadir</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@300;400;600&family=Noto+Sans+JP:wght@300;400&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="styles.css">
-</head>
-<body>
-    <header class="site-header">
-    <div class="header-inner">
-      <div class="logo">
-        <span class="logo-kanji">市場</span>
-        <div class="logo-text">
-          <span class="logo-title">Motto hoshī!</span>
-          <span class="logo-sub">inventario</span>
-        </div>
-      </div>
-      <nav class="nav-top">
-        <a href="index.html" class="nav-link nav-link--active">Inicio</a>
-        <a href="login.html" class="nav-link">Cerrar sesión</a>
-      </nav>
-      <!-- Hamburguesa solo en móvil -->
-      <button class="hamburger" aria-label="Abrir menú">
-        <span></span><span></span><span></span>
-      </button>
-    </div>
-  </header>
-      <main class="auth-main">
-        <div class="auth-box">
-  
-          <header class="auth-header">
-            <a href="menu.html" class="auth-back">← Volver</a>
-            <h1 class="auth-title">Añadir producto</h1>
-            <p class="auth-subtitle">Renueva tu almacén</p>
-          </header>
-          <div id ="overlay-message" class="overlay-opaco oculto"></div>
-          <div id ="box-message" class="box-message error-style oculto">
-            <img  id="icon-message" src="./img/error.png" alt="Icono Error">
-            <p id ="title-message" class="title-add">
-              Error
-            </p>
-            <p id ="message-text"class="message-add">
-              El producto ya existe.
-            </p>
-            <button id ='btn-cerrar' class="btn-cerrar">X</button>
+  <!DOCTYPE html>
+  <html lang="es">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Motto hoshī! - Añadir</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@300;400;600&family=Noto+Sans+JP:wght@300;400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+  </head>
+  <body>
+      <header class="site-header">
+      <div class="header-inner">
+        <div class="logo">
+          <span class="logo-kanji">市場</span>
+          <div class="logo-text">
+            <span class="logo-title">Motto hoshī!</span>
+            <span class="logo-sub">inventario</span>
           </div>
-          <form class="auth-form" novalidate id="nuevoProducto">
-
-            <div class="field">
-              <label class="field__label" for="nombre">Nombre</label>
-              <input
-                class="field__input"
-                type="text"
-                id="nombre"
-                name="nombre"
-                placeholder="Arroz Teriyaki"
-                required
-              >
+        </div>
+        <nav class="nav-top">
+          <a href="index.html" class="nav-link nav-link--active">Inicio</a>
+          <a href="login.html" class="nav-link">Cerrar sesión</a>
+        </nav>
+        <!-- Hamburguesa solo en móvil -->
+        <button class="hamburger" aria-label="Abrir menú">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </header>
+        <main class="auth-main">
+          <div class="auth-box">
+    
+            <header class="auth-header">
+              <a href="menu.html" class="auth-back">← Volver</a>
+              <h1 class="auth-title">Añadir producto</h1>
+              <p class="auth-subtitle">Renueva tu almacén</p>
+            </header>
+            <div id ="overlay-message" class="overlay-opaco oculto"></div>
+            <div id ="box-message" class="box-message error-style oculto">
+              <img  id="icon-message" src="./img/error.png" alt="Icono Error">
+              <p id ="title-message" class="title-add">
+                Error
+              </p>
+              <p id ="message-text"class="message-add">
+                El producto ya existe.
+              </p>
+              <button id ='btn-cerrar' class="btn-cerrar">X</button>
             </div>
-  
-            <div class="field">
-              <label class="field__label" for="categoria">Categoría</label>
-              <input
-                class="field__input"
-                type="text"
-                id="categoria"
-                name="categoria"
-                placeholder="Arroz"
-                required
-              >
-            </div>
-          
+            <form class="form-producto" novalidate id="nuevoProducto">
 
-            <div class="field">
-                <label class="field__label" for="precio">Precio (por unidad)</label>
+              <div class="field field--full">
+                <label class="field__label" for="nombre">Nombre</label>
                 <input
                   class="field__input"
-                  type="number"
-                  id="precio"
-                  name="precio"
-                  placeholder="20"
-                  required
-                >
-              </div>
-
-              <div class="field">
-                <label class="field__label" for="stock">Stock</label>
-                <input
-                  class="field__input"
-                  type="number"
-                  id="stock"
-                  name="stock"
-                  placeholder="10"
-                  required
-                >
-              </div>
-
-              <div class="field">
-                <label class="field__label" for="descripcion">descripcion</label>
-                <textarea
-                  class="field__input scaled_up"
                   type="text"
-                  id="descripcion"
-                  name="descripcion"
-                  placeholder="El mejor plato que vas a probar en tu vida"
+                  id="nombre"
+                  name="nombre"
+                  placeholder="Arroz Teriyaki"
                   required
-                ></textarea>
+                >
               </div>
+    
+              <div class="field">
+                <label class="field__label" for="categoria">Categoría</label>
+                <input
+                  class="field__input"
+                  type="text"
+                  id="categoria"
+                  name="categoria"
+                  placeholder="Arroz"
+                  required
+                >
+              </div>
+            
 
-            <button class="auth-submit" type="submit">Añadir</button>
-  
-          </form>
+              <div class="field">
+                  <label class="field__label" for="precio">Precio</label>
+                  <input
+                    class="field__input"
+                    type="number"
+                    id="precio"
+                    name="precio"
+                    placeholder="20"
+                    required
+                  >
+                </div>
+
+                <div class="field">
+                  <label class="field__label" for="stock">Stock</label>
+                  <input
+                    class="field__input"
+                    type="number"
+                    id="stock"
+                    name="stock"
+                    placeholder="10"
+                    required
+                  >
+                </div>
+
+                <div class="field field--full">
+                  <label class="field__label">Imagen</label>
+                  <div class="field-imagen">
+                    <input class="field__input" type="text" id="imagen-url" name="imagen-url" placeholder="https://ejemplo.com/imagen.jpg">
+                    <label class="btn-imagen-form" for="imagen-local">Subir</label>
+                    <input type="file" accept="image/*" id="imagen-local" name="imagen-local">
+                  </div>
+                </div>
 
 
-<script src="app.js"></script>
-</body>
+                <div class="field field--full">
+                  <label class="field__label" for="descripcion">descripcion</label>
+                  <textarea
+                    class="field__input scaled_up"
+                    type="text"
+                    id="descripcion"
+                    name="descripcion"
+                    placeholder="El mejor plato que vas a probar en tu vida"
+                    required
+                  ></textarea>
+                </div>
+
+              <button class="auth-submit field--full" type="submit">Añadir</button>
+    
+            </form>
+
+
+  <script src="app.js"></script>
+  </body>

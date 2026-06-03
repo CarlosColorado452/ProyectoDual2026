@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Motto hoshī! — Inventario</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@300;400;600&family=Noto+Sans+JP:wght@300;400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body class="app">
+
+  <header class="site-header">
+    <div class="header-inner">
+      <div class="logo">
+        <span class="logo-kanji">市場</span>
+        <div class="logo-text">
+          <span class="logo-title">Motto hoshī!</span>
+          <span class="logo-sub">inventario</span>
+        </div>
+      </div>
+      <nav class="nav-top">
+        <a href="menu.html" class="nav-link">Inicio</a>
+        <a href="anadir.html" class="nav-link">Añadir</a>
+        <a href="inventario.html" class="nav-link nav-link--active">Inventario</a>
+        <a href="login.html" class="nav-link">Cerrar sesión</a>
+      </nav>
+      <button class="hamburger" aria-label="Abrir menú">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </header>
+
+  <main class="main-content">
+
+    <!-- ── Toolbar ── -->
+    <section class="inventario-toolbar">
+
+      <!-- Buscador -->
+      <div class="toolbar-search">
+        <span class="toolbar-search__icon">🔍</span>
+        <input
+          class="toolbar-search__input"
+          type="text"
+          id="buscador"
+          placeholder="Buscar producto..."
+          autocomplete="off"
+        >
+      </div>
+
+      <!-- Filtros desplegable -->
+      <div class="filtros-wrapper">
+        <button class="filtros-toggle" id="filtrosToggle">
+          Filtros <span class="filtros-toggle__arrow">▼</span>
+        </button>
+
+        <div class="filtros-panel oculto" id="filtrosPanel">
+
+          <!-- Categoría -->
+          <div class="filtro-grupo">
+            <button class="filtro-grupo__toggle" id="categoriaToggle">
+              Categoría <span class="filtro-grupo__arrow">▶</span>
+            </button>
+            <div class="filtro-grupo__content oculto" id="categoriaContent">
+              <!-- JS pintará los checkboxes aquí -->
+              <p class="filtro-empty">Sin categorías aún</p>
+            </div>
+          </div>
+
+          <div class="filtro-separador"></div>
+
+          <!-- Precio -->
+          <div class="filtro-grupo">
+            <p class="filtro-grupo__label">Precio</p>
+            <div class="filtro-rango">
+              <input class="filtro-rango__input" type="number" id="precioMin" placeholder="Mín" min="0">
+              <span class="filtro-rango__sep">—</span>
+              <input class="filtro-rango__input" type="number" id="precioMax" placeholder="Máx" min="0">
+            </div>
+          </div>
+
+          <div class="filtro-separador"></div>
+
+          <!-- Stock -->
+          <div class="filtro-grupo">
+            <p class="filtro-grupo__label">Stock</p>
+            <div class="filtro-rango">
+              <input class="filtro-rango__input" type="number" id="stockMin" placeholder="Mín" min="0">
+              <span class="filtro-rango__sep">—</span>
+              <input class="filtro-rango__input" type="number" id="stockMax" placeholder="Máx" min="0">
+            </div>
+          </div>
+
+          <button class="filtro-limpiar" id="filtroLimpiar">Limpiar filtros</button>
+
+        </div>
+      </div>
+
+    </section>
+
+    <!-- ── Contador de resultados ── -->
+    <p class="inventario-contador" id="inventarioContador">0 productos</p>
+
+    <!-- ── Grid de cards ── -->
+    <section class="inventario-grid" id="inventarioGrid">
+      <!-- JS pintará las cards aquí -->
+      <div class="inventario-vacio" id="inventarioVacio">
+        <p class="inventario-vacio__texto">No hay productos todavía</p>
+        <a href="anadir.html" class="auth-submit" style="text-decoration:none; text-align:center; display:block; margin-top:1rem;">Añadir producto</a>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ── Panel lateral ── -->
+  <aside class="panel-lateral oculto" id="panelLateral">
+    <div class="panel-lateral__header">
+      <h2 class="panel-lateral__titulo" id="panelTitulo">Producto</h2>
+      <button class="btn-cerrar" id="panelCerrar">✕</button>
+    </div>
+
+    <div class="panel-lateral__imagen">
+      <img id="panelImagen" src="" alt="Imagen del producto">
+    </div>
+
+    <div class="panel-lateral__info">
+      <p class="panel-info__categoria" id="panelCategoria">—</p>
+      <p class="panel-info__precio" id="panelPrecio">—</p>
+      <p class="panel-info__descripcion" id="panelDescripcion">—</p>
+    </div>
+
+    <div class="panel-lateral__stock">
+      <p class="panel-stock__label">Stock</p>
+      <div class="panel-stock__controls">
+        <button class="panel-stock__btn" id="btnRestar">−</button>
+        <span class="panel-stock__numero" id="panelStock">—</span>
+        <button class="panel-stock__btn" id="btnSumar">+</button>
+      </div>
+    </div>
+
+    <div class="panel-lateral__acciones">
+      <button class="panel-btn panel-btn--vender" id="btnVender">Vender</button>
+      <button class="panel-btn panel-btn--eliminar" id="btnEliminar">Eliminar</button>
+    </div>
+  </aside>
+
+  <!-- Overlay para el panel -->
+  <div class="overlay-opaco oculto" id="overlayPanel"></div>
+
+  <script src="app.js"></script>
+</body>
+</html>

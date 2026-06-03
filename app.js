@@ -1,6 +1,6 @@
 // ---- CARGA DE USUARIOS POR DEFECTO ----
 // Usuarios: admin, empleado
-// Posibilidad de clientes: Cliente1, Cliente2
+
 
 
 
@@ -21,22 +21,44 @@ function guardarProductos(productos) {
   }
 
 
-function anadirProducto(){
+  function anadirProducto() {
+    const productoNuevo = obtenerProductoFormulario();
     
-    const productos = obtenerProductos()
-    productos.push(obtenerProductoFormulario())
-    guardarProductos(productos)
-    
+    if(validarProductoNuevo(productoNuevo)) {
+        if(productoYaExiste(productoNuevo)) {
+            mostrarMensaje('Error', 'Ese producto ya existe', 'error');
+        } else {
+            const productos = obtenerProductos();
+            productos.push(productoNuevo);
+            guardarProductos(productos);
+            mostrarMensaje('Éxito', 'Producto añadido correctamente', 'ok');
+        }
+    }
 }
 
 function obtenerProductoFormulario(){
+
+
+
+    const url = document.getElementById('imagen-url').value
+    const archivo = document.getElementById('imagen-local').files[0]
+
+    let imagen = null
+
+    if(archivo){
+        imagen = archivo;
+    }else{
+        imagen = url;
+    }
+
 
     const productoNuevo = {
         nombre: document.getElementById('nombre').value,
         categoria: document.getElementById('categoria').value,
         precio: parseFloat(document.getElementById('precio').value),
         stock: parseInt(document.getElementById('stock').value),
-        descripcion: document.getElementById('descripcion').value
+        descripcion: document.getElementById('descripcion').value,
+        imagen: imagen
     }
     return productoNuevo
 
@@ -52,6 +74,29 @@ function productoYaExiste(productoNuevo){
     return false
 
 }
+
+
+
+function validarProductoNuevo(productoNuevo) {
+    if(!productoNuevo.nombre) {
+        mostrarMensaje('Error', 'El nombre es obligatorio', 'error');
+        return false;
+    }
+    if(!productoNuevo.categoria) {
+        mostrarMensaje('Error', 'La categoría es obligatoria', 'error');
+        return false;
+    }
+    if(!(productoNuevo.precio > 0)) {
+        mostrarMensaje('Error', 'El precio debe ser mayor que 0', 'error');
+        return false;
+    }
+    if(!(productoNuevo.stock >= 0)) {
+        mostrarMensaje('Error', 'El stock no puede ser negativo', 'error');
+        return false;
+    }
+    return true;
+}
+
 
 function normalizar(texto) {
     // Transforma un texto a minusculas, ademas de eliminar los acentos de las vocales y otros simbolos
@@ -86,14 +131,9 @@ function mostrarMensaje(titulo, mensaje, tipo){
 // ---- EVENTOS ----
 
 document.getElementById('nuevoProducto').addEventListener('submit', (evento) => {
-    //No se reinicia la página
-    evento.preventDefault()
-    if(!productoYaExiste(obtenerProductoFormulario())){
-        anadirProducto()
-        mostrarMensaje('Correcto', 'Aadido correctamente', 'ok')
-    }else
-        mostrarMensaje('Error', 'Ese producto ya existe', 'error')
-})
+    evento.preventDefault();
+    anadirProducto();
+});
 
 document.getElementById('btn-cerrar').addEventListener('click', (evento) => {
     evento.preventDefault()
