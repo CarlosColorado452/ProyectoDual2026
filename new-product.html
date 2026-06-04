@@ -7,7 +7,11 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@300;400;600&family=Noto+Sans+JP:wght@300;400&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="css/base.css">
+    <link rel="stylesheet" href="css/layout.css">
+    <link rel="stylesheet" href="css/auth.css">
+    <link rel="stylesheet" href="css/forms.css">
+    <link rel="stylesheet" href="css/modales.css">
   </head>
   <body>
       <header class="site-header">
@@ -20,15 +24,23 @@
           </div>
         </div>
         <nav class="nav-top">
-          <a href="index.html" class="nav-link nav-link--active">Inicio</a>
-          <a href="login.html" class="nav-link">Cerrar sesión</a>
+          <a href="menu.html" class="nav-link">Inicio</a>
+          <a href="new-product.html" id="newProductNav"class="nav-link nav-link--active">Añadir</a>
+          <a href="inventario.html" class="nav-link">Inventario</a>
+          <a href="login.html" id="logOut"class="nav-link">Cerrar sesión</a>
         </nav>
         <!-- Hamburguesa solo en móvil -->
-        <button class="hamburger" aria-label="Abrir menú">
+        <button class="hamburger" id="hamburger" aria-label="Abrir menú">
           <span></span><span></span><span></span>
         </button>
       </div>
     </header>
+    <div class="nav-mobile oculto" id="navMobile">
+      <a href="menu.html" class="nav-mobile__link">Inicio</a>
+      <a href="new-product.html" id="newProductNavMobile" class="nav-mobile__link">Añadir</a>
+      <a href="inventario.html" class="nav-mobile__link">Inventario</a>
+      <a href="login.html"  id="logOutMobile" class="nav-mobile__link">Cerrar sesión</a>
+    </div>
         <main class="auth-main">
           <div class="auth-box">
     
@@ -41,10 +53,10 @@
             <div id ="box-message" class="box-message error-style oculto">
               <img  id="icon-message" src="./img/error.png" alt="Icono Error">
               <p id ="title-message" class="title-add">
-                Error
+                
               </p>
               <p id ="message-text"class="message-add">
-                El producto ya existe.
+                
               </p>
               <button id ='btn-cerrar' class="btn-cerrar">X</button>
             </div>

@@ -1,0 +1,129 @@
+/* ════════════════════════════════════════════
+   MODALES, OVERLAY Y MENSAJES FLOTANTES
+   Usado en auth, inventario, etc.
+════════════════════════════════════════════ */
+
+/* ── Fondo opaco ── */
+.overlay-opaco {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 9;
+    transition: all 0.2s ease-in-out;
+  }
+  
+  /* ── Caja de mensaje centrada ── */
+  .box-message {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 90%;
+    max-width: 400px;
+    padding: 4rem;
+    background-color: white;
+    border: 1px solid var(--borde);
+    border-radius: var(--radio);
+    z-index: 300;
+    font-family: var(--font-sans);
+    font-weight: bold;
+    transition: all 0.2s ease-in-out;
+    animation: entrar 0.3s ease-out;
+  }
+  
+  .box-message .title-add {
+    font-size: 1.25em;
+    position: absolute;
+    top: 25%;
+    left: 23%;
+    transform: translate(-50%, -50%);
+  }
+  
+  .box-message .message-add {
+    font-size: 0.9em;
+    position: absolute;
+    top: 50%;
+    left: 7%;
+    width: 40%;
+  }
+  
+  .box-message img {
+    position: absolute;
+    top: 26%;
+    left: 9%;
+    transform: translate(-50%, -50%);
+    width: 2rem;
+  }
+  
+  /* ── Variantes de mensaje ── */
+  .error-style {
+    color: var(--carmesi);
+    border-color: var(--carmesi);
+    background-color: #ff9286;
+  }
+  
+  .error-style:hover {
+    box-shadow: 0 0 0 3px rgba(192, 57, 43, 0.15);
+  }
+  
+  .correct-style {
+    color: #31c367;
+    border-color: #31c367;
+    background-color: #cafedd;
+  }
+  
+  .correct-style:hover {
+    box-shadow: 0 0 0 3px rgba(27, 127, 34, 0.15);
+  }
+  
+  /* ── Botón cerrar genérico ── */
+  .btn-cerrar {
+    position: absolute;
+    top: 12%;
+    left: 87%;
+    font-weight: bold;
+    cursor: pointer;
+    border-radius: 50%;
+    background: rgba(0,0,0,0.15);
+    border: none;
+    width: 28px;
+    height: 28px;
+    font-size: 0.8rem;
+    transition: background 0.2s, transform 0.2s;
+    transform-origin: center center;
+  }
+  
+  .btn-cerrar:hover {
+    background: rgba(0,0,0,0.3);
+    transform: rotate(90deg);
+  }
+  
+  /* Variante para usar dentro de un modal con posición estática */
+  .btn-cerrar--modal {
+    position: static;
+    border-radius: 50%;
+    background: rgba(0,0,0,0.15);
+    border: none;
+    width: 28px;
+    height: 28px;
+    font-size: 0.8rem;
+    cursor: pointer;
+    transition: background 0.2s, transform 0.2s;
+  }
+  
+  .btn-cerrar--modal:hover {
+    background: rgba(0,0,0,0.3);
+    transform: rotate(90deg);
+  }
+  
+  /* ── Animación de entrada ── */
+  @keyframes entrar {
+    from {
+      opacity: 0;
+      transform: translate(-50%, -60%) scale(0.9);
+    }
+    to {
+      opacity: 1;
+      transform: translate(-50%, -50%) scale(1);
+    }
+  }

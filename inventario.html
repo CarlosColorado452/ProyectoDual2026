@@ -7,7 +7,13 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@300;400;600&family=Noto+Sans+JP:wght@300;400&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" href="css/layout.css">
+  <link rel="stylesheet" href="css/componentes.css">
+  <link rel="stylesheet" href="css/forms.css">
+  <link rel="stylesheet" href="css/inventario.css">
+  <link rel="stylesheet" href="css/modales.css">
+  <link rel="stylesheet" href="css/auth.css">
 </head>
 <body class="app">
 
@@ -22,15 +28,20 @@
       </div>
       <nav class="nav-top">
         <a href="menu.html" class="nav-link">Inicio</a>
-        <a href="anadir.html" class="nav-link">Añadir</a>
+        <a href="new-product.html" id="newProductNav"class="nav-link">Añadir</a>
         <a href="inventario.html" class="nav-link nav-link--active">Inventario</a>
-        <a href="login.html" class="nav-link">Cerrar sesión</a>
+        <a href="login.html" id="logOut"class="nav-link">Cerrar sesión</a>
       </nav>
-      <button class="hamburger" aria-label="Abrir menú">
+      <button class="hamburger" id="hamburger" aria-label="Abrir menú">
         <span></span><span></span><span></span>
       </button>
-    </div>
   </header>
+  <div class="nav-mobile oculto" id="navMobile">
+    <a href="menu.html" class="nav-mobile__link">Inicio</a>
+    <a href="new-product.html" id="newProductNavMobile" class="nav-mobile__link">Añadir</a>
+    <a href="inventario.html" class="nav-mobile__link">Inventario</a>
+    <a href="login.html"  id="logOutMobile" class="nav-mobile__link">Cerrar sesión</a>
+    </div>
 
   <main class="main-content">
 
@@ -64,7 +75,7 @@
             </button>
             <div class="filtro-grupo__content oculto" id="categoriaContent">
               <!-- JS pintará los checkboxes aquí -->
-              <p class="filtro-empty">Sin categorías aún</p>
+              
             </div>
           </div>
 
@@ -107,7 +118,7 @@
       <!-- JS pintará las cards aquí -->
       <div class="inventario-vacio" id="inventarioVacio">
         <p class="inventario-vacio__texto">No hay productos todavía</p>
-        <a href="anadir.html" class="auth-submit" style="text-decoration:none; text-align:center; display:block; margin-top:1rem;">Añadir producto</a>
+        <a href="new-product.html" class="auth-submit" style="text-decoration:none; text-align:center; display:block; margin-top:1rem;">Añadir producto</a>
       </div>
     </section>
 
@@ -117,7 +128,7 @@
   <aside class="panel-lateral oculto" id="panelLateral">
     <div class="panel-lateral__header">
       <h2 class="panel-lateral__titulo" id="panelTitulo">Producto</h2>
-      <button class="btn-cerrar" id="panelCerrar">✕</button>
+      <button class="btn-cerrar--modal" id="panelCerrar">✕</button>
     </div>
 
     <div class="panel-lateral__imagen">
@@ -140,14 +151,61 @@
     </div>
 
     <div class="panel-lateral__acciones">
-      <button class="panel-btn panel-btn--vender" id="btnVender">Vender</button>
+      <button class="panel-btn panel-btn--editar" id="btnEditar">Editar</button>
       <button class="panel-btn panel-btn--eliminar" id="btnEliminar">Eliminar</button>
     </div>
   </aside>
 
   <!-- Overlay para el panel -->
   <div class="overlay-opaco oculto" id="overlayPanel"></div>
-
+  <div class="modal-editar oculto" id="modalEditar">
+    <div class="modal-editar__header">
+      <h2 class="auth-title">Editar producto</h2>
+      <button class="btn-cerrar--modal" id="modalEditarCerrar">✕</button>
+    </div>
+  
+    <form class="auth-form form-producto" id="formEditar" novalidate>
+      <div class="modal-editar__preview">
+        <img id="editImagenPreview" src="" alt="Imagen actual">
+      </div>
+      <div class="field field--full">
+        <label class="field__label" for="editNombre">Nombre</label>
+        <input class="field__input" type="text" id="editNombre" name="nombre" required>
+      </div>
+      <div class="field">
+        <label class="field__label" for="editCategoria">Categoría</label>
+        <input class="field__input" type="text" id="editCategoria" name="categoria" required>
+      </div>
+      <div class="field">
+        <label class="field__label" for="editPrecio">Precio</label>
+        <input class="field__input" type="number" id="editPrecio" name="precio" required>
+      </div>
+      <div class="field field--full">
+        <label class="field__label" for="editDescripcion">Descripción</label>
+        <textarea class="field__input scaled_up" id="editDescripcion" name="descripcion"></textarea>
+      </div>
+      <div class="field field--full">
+        <label class="field__label">Imagen</label>
+        <div class="field-imagen">
+          <input class="field__input" type="text" id="editImagenUrl" placeholder="https://ejemplo.com/imagen.jpg">
+          <label class="btn-imagen-form" for="editImagenLocal">Subir</label>
+          <input type="file" accept="image/*" id="editImagenLocal">
+        </div>
+      </div>
+      <button class="auth-submit field--full" type="submit">Guardar cambios</button>
+    </form>
+  </div>
+  <div id ="overlay-message" class="overlay-opaco oculto"></div>
+  <div id ="box-message" class="box-message error-style oculto">
+    <img  id="icon-message" src="./img/error.png" alt="Icono Error">
+    <p id ="title-message" class="title-add">
+      Error
+    </p>
+    <p id ="message-text"class="message-add">
+      El producto ya existe.
+    </p>
+    <button id ='btn-cerrar' class="btn-cerrar">X</button>
+  </div>
   <script src="app.js"></script>
 </body>
 </html>

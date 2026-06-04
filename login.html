@@ -8,7 +8,10 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@300;400;600&family=Noto+Sans+JP:wght@300;400&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" href="css/forms.css">
+  <link rel="stylesheet" href="css/auth.css">
+  <link rel="stylesheet" href="css/modales.css">  
 </head>
 <body class="auth">
 
@@ -33,7 +36,7 @@
           <p class="auth-subtitle">Accede a tu panel de control</p>
         </header>
 
-        <form class="auth-form" novalidate>
+        <form class="auth-form" id="login" novalidate>
 
           <div class="field">
             <label class="field__label" for="usuario">Usuario</label>
@@ -64,15 +67,25 @@
           <button class="auth-submit" type="submit">Entrar</button>
 
         </form>
-
+        <div id ="overlay-message" class="overlay-opaco oculto"></div>
+        <div id ="box-message" class="box-message error-style oculto">
+          <img  id="icon-message" src="./img/error.png" alt="Icono Error">
+          <p id ="title-message" class="title-add">
+            
+          </p>
+          <p id ="message-text"class="message-add">
+            
+          </p>
+          <button id ='btn-cerrar' class="btn-cerrar">X</button>
+        </div>
         <footer class="auth-footer">
           <p>¿No tienes cuenta? <a href="registro.html" class="auth-link">Regístrate</a></p>
         </footer>
 
       </div>
     </main>
-
+    
   </div>
-
+  <script src="app.js"></script>
 </body>
 </html>

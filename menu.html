@@ -7,7 +7,9 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@300;400;600&family=Noto+Sans+JP:wght@300;400&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" href="css/layout.css">
+  <link rel="stylesheet" href="css/componentes.css">
 </head>
 <body>
 
@@ -22,15 +24,24 @@
         </div>
       </div>
       <nav class="nav-top">
-        <a href="index.html" class="nav-link nav-link--active">Inicio</a>
-        <a href="login.html" class="nav-link">Cerrar sesión</a>
+        <a href="menu.html" class="nav-link nav-link--active">Inicio</a>
+        <a href="new-product.html" id="newProductNav"class="nav-link">Añadir</a>
+        <a href="inventario.html" class="nav-link">Inventario</a>
+        <a href="login.html" id="logOut"class="nav-link">Cerrar sesión</a>
       </nav>
       <!-- Hamburguesa solo en móvil -->
-      <button class="hamburger" aria-label="Abrir menú">
+      <button class="hamburger" id="hamburger" aria-label="Abrir menú">
         <span></span><span></span><span></span>
       </button>
     </div>
+   
   </header>
+  <div class="nav-mobile oculto" id="navMobile">
+    <a href="menu.html" class="nav-mobile__link">Inicio</a>
+    <a href="new-product.html" id="newProductNavMobile" class="nav-mobile__link">Añadir</a>
+    <a href="inventario.html" class="nav-mobile__link">Inventario</a>
+    <a href="login.html"  id="logOutMobile" class="nav-mobile__link">Cerrar sesión</a>
+    </div>
 
   <!-- ══════════════ MAIN ══════════════ -->
   <main class="main-content">
@@ -48,28 +59,33 @@
     <!-- Tarjetas de acceso rápido -->
     <section class="cards-section">
       <h2 class="section-label">Acciones</h2>
-      <div class="cards-grid">
+      <div class="cards-grid" id="cardsGrid">
 
-        <a href="new-product.html">
+        <a href="new-product.html" id="btnAnadir">
           <article class="card">
             <div class="card-icon">＋</div>
             <div class="card-body">
               <h3 class="card-title">Añadir producto</h3>
-              <p class="card-desc">Registra un nuevo artículo en el inventario.</p>
+              <p class="card-desc">Registra un nuevo producto dentro del inventario.</p>
             </div>
             <div class="card-arrow">→</div>
           </article>
         </a>
-        
+
+
+
+        <a href="inventario.html">
         <article class="card">
           <div class="card-icon">≡</div>
           <div class="card-body">
             <h3 class="card-title">Ver inventario</h3>
-            <p class="card-desc">Consulta y filtra todos tus productos.</p>
+            <p class="card-desc">Consulta, vende y filtra todos tus productos.</p>
           </div>
           <div class="card-arrow">→</div>
         </article>
-   
+        
+      </a>
+      <a id="btnStockBajo">
         <article class="card card--alert">
           <div class="card-icon">⚠</div>
           <div class="card-body">
@@ -78,6 +94,7 @@
           </div>
           <div class="card-arrow">→</div>
         </article>
+      </a>
 
       </div>
     </section>
@@ -87,15 +104,15 @@
       <h2 class="section-label">Resumen</h2>
       <div class="stats-grid">
         <div class="stat-item">
-          <span class="stat-number">—</span>
+          <span class="stat-number" id="statProductos">—</span>
           <span class="stat-label">Productos</span>
         </div>
         <div class="stat-item">
-          <span class="stat-number">—</span>
+          <span class="stat-number" id="statCategorias">—</span>
           <span class="stat-label">Categorías</span>
         </div>
         <div class="stat-item stat-item--alert">
-          <span class="stat-number">—</span>
+          <span class="stat-number" id="statStockBajo">—</span>
           <span class="stat-label">Stock bajo</span>
         </div>
       </div>

@@ -1,0 +1,199 @@
+/* ════════════════════════════════════════════
+   LAYOUT DE LA APLICACIÓN (menú, inventario…)
+   Header, footer, navegación principal
+════════════════════════════════════════════ */
+
+body.app {
+    background-color: var(--fondo-app);
+    color: var(--tinta);
+    display: flex;
+    flex-direction: column;
+  }
+  
+  /* ── Header ── */
+  .site-header {
+    background: var(--papel);
+    border-bottom: 1px solid var(--borde);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+  }
+  
+  .header-inner {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 1.25rem;
+    height: 64px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+  }
+  
+  /* ── Logo ── */
+  .logo {
+    display: flex;
+    align-items: center;
+    gap: 0.65rem;
+    flex-shrink: 0;
+  }
+  
+  .logo-kanji {
+    font-family: var(--font-serif);
+    font-size: 1.6rem;
+    color: var(--carmesi);
+    line-height: 1;
+  }
+  
+  .logo-text {
+    display: flex;
+    flex-direction: column;
+    line-height: 1.1;
+  }
+  
+  .logo-title {
+    font-family: var(--font-serif);
+    font-size: 0.95rem;
+    font-weight: 600;
+    letter-spacing: 0.06em;
+    color: var(--tinta);
+  }
+  
+  .logo-sub {
+    font-size: 0.65rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--tinta-suave);
+  }
+  
+  /* ── Navegación escritorio ── */
+  .nav-top {
+    display: none;
+    gap: 0.25rem;
+  }
+  
+  .nav-link {
+    font-size: 0.85rem;
+    letter-spacing: 0.08em;
+    padding: 0.4rem 0.9rem;
+    border-radius: var(--radio);
+    color: var(--tinta-suave);
+    transition: color 0.2s, background 0.2s;
+  }
+  
+  .nav-link:hover,
+  .nav-link--active {
+    color: var(--tinta);
+    background: var(--papel-2);
+  }
+  
+  /* ── Hamburguesa móvil ── */
+  .hamburger {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 6px;
+  }
+  
+  .hamburger span {
+    display: block;
+    width: 22px;
+    height: 1.5px;
+    background: var(--tinta);
+  }
+  
+  /* ── Menú móvil desplegable ── */
+  .nav-mobile {
+    background: var(--papel);
+    border-bottom: 1px solid var(--borde);
+    flex-direction: column;
+    display: flex;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.5s ease-in-out;
+  }
+  
+  .nav-mobile.visible {
+    max-height: 300px;
+  }
+  
+  .nav-mobile__link {
+    padding: 0.9rem 1.25rem;
+    font-size: 0.9rem;
+    letter-spacing: 0.08em;
+    color: var(--tinta-suave);
+    font-family: var(--font-sans);
+    border-bottom: 1px solid var(--borde);
+    transition: background 0.2s, color 0.2s;
+  }
+  
+  .nav-mobile__link:hover {
+    background: var(--papel-2);
+    color: var(--tinta);
+    font-weight: bold;
+  }
+  
+  /* ── Contenido principal ── */
+  .main-content {
+    flex: 1;
+    max-width: 1100px;
+    width: 100%;
+    margin: 0 auto;
+    padding: 2rem 1.25rem 3rem;
+    display: flex;
+    flex-direction: column;
+    gap: 2.5rem;
+  }
+  
+  .section-label {
+    font-size: 0.7rem;
+    font-weight: 400;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: var(--tinta-suave);
+    margin-bottom: 1rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 1px solid var(--borde);
+  }
+  
+  /* ── Footer ── */
+  .site-footer {
+    border-top: 1px solid var(--borde);
+    padding: 1.5rem 1.25rem;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.4rem;
+  }
+  
+  .site-footer p {
+    font-size: 0.78rem;
+    color: var(--tinta-suave);
+  }
+  
+  .site-footer strong {
+    font-weight: 400;
+    color: var(--tinta);
+  }
+  
+  .footer-kanji {
+    font-family: var(--font-serif);
+    font-size: 1rem;
+    color: var(--borde);
+    letter-spacing: 0.15em;
+  }
+  
+  /* ── Responsive ── */
+  @media (min-width: 600px) {
+    .nav-top   { display: flex; }
+    .hamburger { display: none; }
+    .nav-mobile { display: none !important; }
+  }
+  
+  @media (min-width: 900px) {
+    .header-inner { height: 70px; }
+  }

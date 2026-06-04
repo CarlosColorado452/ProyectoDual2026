@@ -1,0 +1,180 @@
+/* ════════════════════════════════════════════
+   AUTENTICACIÓN (login.html / registro.html)
+   Layout del panel decorativo + formulario
+════════════════════════════════════════════ */
+
+body.auth {
+    background-color: var(--papel2);
+    color: var(--tinta);
+    min-height: 100vh;
+    display: flex;
+  }
+  
+  .auth-wrapper {
+    display: flex;
+    width: 100%;
+    min-height: 100vh;
+  }
+  
+  /* ── Panel decorativo (visible solo en escritorio) ── */
+  .auth-deco {
+    display: none;
+    background: var(--tinta);
+    flex: 0 0 38%;
+    position: relative;
+    overflow: hidden;
+  }
+  
+  .auth-deco::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image: repeating-linear-gradient(
+        0deg,
+        transparent,
+        transparent 40px,
+        rgba(255,255,255,0.03) 40px,
+        rgba(255,255,255,0.03) 41px
+    );
+  }
+  
+  .auth-deco__inner {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    gap: 0.5rem;
+    padding: 2rem;
+    text-align: center;
+  }
+  
+  .auth-deco__kanji {
+    font-family: var(--font-serif);
+    font-size: 6rem;
+    color: var(--carmesi);
+    line-height: 1;
+    opacity: 0.9;
+  }
+  
+  .auth-deco__tagline {
+    font-family: var(--font-serif);
+    font-size: 1.1rem;
+    color: #fff;
+    letter-spacing: 0.12em;
+    margin-top: 0.5rem;
+  }
+  
+  .auth-deco__sub {
+    font-size: 0.7rem;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.4);
+  }
+  
+  /* ── Panel del formulario ── */
+  .auth-main {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem 1.25rem;
+  }
+  
+  .auth-box {
+    width: 100%;
+    max-width: 360px;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+  }
+  
+  .auth-box--producto {
+    max-width: 600px;
+  }
+  
+  /* ── Cabecera ── */
+  .auth-back {
+    display: inline-block;
+    font-size: 0.78rem;
+    letter-spacing: 0.08em;
+    color: var(--tinta-suave);
+    margin-bottom: 0.75rem;
+    transition: color 0.2s;
+  }
+  
+  .auth-back:hover {
+    color: var(--tinta);
+  }
+  
+  .auth-title {
+    font-family: var(--font-serif);
+    font-size: 1.75rem;
+    font-weight: 400;
+    color: var(--tinta);
+    line-height: 1.2;
+    margin-bottom: 0.3rem;
+  }
+  
+  .auth-subtitle {
+    font-size: 0.85rem;
+    color: var(--tinta-suave);
+  }
+  
+  /* ── Formulario ── */
+  .auth-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+  }
+  
+  /* ── Botón enviar ── */
+  .auth-submit {
+    width: 100%;
+    margin-top: 0.5rem;
+    padding: 0.85rem;
+    background: var(--tinta);
+    color: #fff;
+    font-size: 0.9rem;
+    font-family: var(--font-sans);
+    font-weight: 400;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    border: none;
+    border-radius: var(--radio);
+    cursor: pointer;
+    transition: background 0.2s, transform 0.15s, letter-spacing 0.3s;
+  }
+  
+  .auth-submit:hover {
+    background: var(--papel);
+    color: black;
+    font-weight: bold;
+    transform: translateY(-1px);
+    letter-spacing: 0.25em;
+  }
+  
+  /* ── Pie del formulario ── */
+  .auth-footer {
+    text-align: center;
+    font-size: 0.82rem;
+    color: var(--tinta-suave);
+  }
+  
+  .auth-link {
+    color: var(--carmesi);
+    border-bottom: 1px solid transparent;
+    transition: border-color 0.2s;
+  }
+  
+  .auth-link:hover {
+    border-color: var(--carmesi);
+  }
+  
+  /* ── Responsive ── */
+  @media (min-width: 700px) {
+    .auth-deco { display: flex; }
+    .auth-title { font-size: 2rem; }
+  }

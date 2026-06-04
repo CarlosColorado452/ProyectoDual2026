@@ -1,0 +1,52 @@
+/* ════════════════════════════════════════════
+   VARIABLES GLOBALES Y RESET
+   Se aplica a todas las páginas
+════════════════════════════════════════════ */
+
+:root {
+    --papel:       #f5d2c8;
+    --papel-2:     #ede8df;
+    --tinta:       #1a1a1a;
+    --tinta-suave: #5a5550;
+    --carmesi:     #c0392b;
+    --carmesi-clr: #e8d5d3;
+    --rojizo:      #6d2b2b;
+    --borde:       #d4cec5;
+    --fondo-app:   #fdf6f4;
+    --radio:       4px;
+    --sombra:      0 2px 12px rgba(26, 26, 26, 0.07);
+    --font-serif:  'Noto Serif JP', Georgia, serif;
+    --font-sans:   'Noto Sans JP', system-ui, sans-serif;
+  }
+  
+  /* ── Reset básico ── */
+  *,
+  *::before,
+  *::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  html {
+    scroll-behavior: smooth;
+  }
+  
+  body {
+    min-height: 100vh;
+    font-family: var(--font-sans);
+    font-weight: 300;
+  }
+  
+  a {
+    text-decoration: none;
+    color: inherit;
+    background-color: transparent;
+    cursor: pointer;
+  }
+  
+  
+  /* --- Utilidad genérica --- */
+  .oculto {
+    display: none;
+  }

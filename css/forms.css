@@ -1,0 +1,107 @@
+/* ════════════════════════════════════════════
+   CAMPOS DE FORMULARIO
+   Usado en portada, auth, inventario, etc.
+════════════════════════════════════════════ */
+
+/* ── Campo genérico ── */
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+
+.field__label {
+  font-size: 0.72rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--tinta-suave);
+}
+
+.field__input {
+  width: 100%;
+  padding: 0.75rem 0.9rem;
+  font-size: 0.95rem;
+  font-family: var(--font-sans);
+  font-weight: 300;
+  color: var(--tinta);
+  background: #fff;
+  border: 1px solid var(--borde);
+  border-radius: var(--radio);
+  outline: none;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.field__input::placeholder {
+  color: var(--borde);
+}
+
+.field__input:focus {
+  border-color: var(--tinta-suave);
+  box-shadow: 0 0 0 3px rgba(90, 85, 80, 0.08);
+}
+
+/* ── Variante para formularios de producto (2 columnas) ── */
+.form-producto {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+}
+
+.field--full {
+  grid-column: 1 / -1;
+}
+
+/* ── Textarea con altura mínima ── */
+.scaled_up {
+  min-height: 10vh;
+  resize: none;
+}
+
+/* ── Campo de imagen ── */
+.field-imagen {
+  display: flex;
+  gap: 0.5rem;
+  align-items: center;
+}
+
+.field-imagen .field__input {
+  flex: 1;
+}
+
+.field-separador {
+  text-align: center;
+  font-size: 0.75rem;
+  color: var(--tinta-suave);
+  letter-spacing: 0.1em;
+  margin: 0.25rem 0;
+}
+
+/* Ocultar input file nativo */
+input[type="file"] {
+  display: none;
+}
+
+/* ── Botón de subida de imagen (label estilizado) ── */
+.btn-imagen-form {
+  display: inline-block;
+  padding: 0.75rem 1.5rem;
+  background: var(--tinta);
+  color: #fff;
+  font-size: 0.85rem;
+  font-family: var(--font-sans);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  border-radius: var(--radio);
+  flex-shrink: 0;
+  white-space: nowrap;
+  cursor: pointer;
+  transition: background 0.2s, transform 0.15s, letter-spacing 0.3s;
+}
+
+.btn-imagen-form:hover {
+  background: var(--papel);
+  color: black;
+  font-weight: bold;
+  transform: translateY(-1px);
+  letter-spacing: 0.2em;
+}

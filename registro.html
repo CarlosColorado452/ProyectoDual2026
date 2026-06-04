@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Japan Market — Registro</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@300;400;600&family=Noto+Sans+JP:wght@300;400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" href="css/forms.css">
+  <link rel="stylesheet" href="css/auth.css">
+  <link rel="stylesheet" href="css/modales.css">  
+</head>
+<body class="auth">
+
+  <div class="auth-wrapper">
+
+    <!-- Panel izquierdo — decorativo -->
+    <aside class="auth-deco">
+      <div class="auth-deco__inner">
+        <span class="auth-deco__kanji">新</span>
+        <p class="auth-deco__tagline">Motto hoshī!</p>
+        <p class="auth-deco__sub">Gestión de inventario</p>
+      </div>
+    </aside>
+
+    <!-- Panel derecho — formulario -->
+    <main class="auth-main">
+      <div class="auth-box">
+
+        <header class="auth-header">
+          <a href="login.html" class="auth-back">← Volver</a>
+          <h1 class="auth-title">Crear cuenta</h1>
+          <p class="auth-subtitle">Regístrate para acceder al panel</p>
+        </header>
+
+        <form class="auth-form" id="registro" novalidate>
+
+          <div class="field">
+            <label class="field__label" for="usuario">Usuario</label>
+            <input
+              class="field__input"
+              type="text"
+              id="usuario"
+              name="usuario"
+              placeholder="tu_usuario"
+              autocomplete="username"
+              required
+            >
+          </div>
+
+          <div class="field">
+            <label class="field__label" for="password">Contraseña</label>
+            <input
+              class="field__input"
+              type="password"
+              id="password"
+              name="password"
+              placeholder="••••••••"
+              autocomplete="new-password"
+              required
+            >
+          </div>
+
+          <div class="field">
+            <label class="field__label" for="passwordConfirm">Confirmar contraseña</label>
+            <input
+              class="field__input"
+              type="password"
+              id="passwordConfirm"
+              name="passwordConfirm"
+              placeholder="••••••••"
+              autocomplete="new-password"
+              required
+            >
+          </div>
+
+          <button class="auth-submit" type="submit">Crear cuenta</button>
+
+        </form>
+
+        <div id="overlay-message" class="overlay-opaco oculto"></div>
+        <div id="box-message" class="box-message error-style oculto">
+          <img id="icon-message" src="./img/error.png" alt="Icono">
+          <p id="title-message" class="title-add"></p>
+          <p id="message-text" class="message-add"></p>
+          <button id="btn-cerrar" class="btn-cerrar">X</button>
+        </div>
+
+        <footer class="auth-footer">
+          <p>¿Ya tienes cuenta? <a href="login.html" class="auth-link">Inicia sesión</a></p>
+        </footer>
+
+      </div>
+    </main>
+    
+  </div>
+  <script src="app.js"></script>
+</body>
+</html>
